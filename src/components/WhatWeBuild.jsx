@@ -1,8 +1,10 @@
 import React from 'react';
-import Card from './Card';
 import { GitBranch, BarChart3 } from 'lucide-react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import FeatureCard from './FeatureCard';
 
 const WhatWeBuild = () => {
+  const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.2 });
   const features = [
     {
       icon: GitBranch,
@@ -20,7 +22,7 @@ const WhatWeBuild = () => {
     <section id="what-we-build" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-gradient-to-br from-white via-blue-50/50 to-purple-50/30">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-10 sm:mb-12 lg:mb-16">
+        <div ref={headerRef} className={`text-center mb-10 sm:mb-12 lg:mb-16 fade-in-up ${headerVisible ? 'visible' : ''}`}>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-charcoal mb-4 sm:mb-6 text-balance">
             What We Build
           </h2>
@@ -30,21 +32,17 @@ const WhatWeBuild = () => {
         </div>
 
         {/* Feature Cards Grid */}
-        <div className="grid sm:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
+        <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-5xl mx-auto items-stretch">
           {features.map((feature, index) => {
-            const Icon = feature.icon;
+            const delayClass = index === 0 ? 'delay-200' : 'delay-300';
             return (
-              <Card key={index}>
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center mb-6 shadow-lg">
-                  <Icon className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-semibold text-charcoal mb-4">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {feature.description}
-                </p>
-              </Card>
+              <FeatureCard
+                key={index}
+                icon={feature.icon}
+                title={feature.title}
+                description={feature.description}
+                delay={delayClass}
+              />
             );
           })}
         </div>

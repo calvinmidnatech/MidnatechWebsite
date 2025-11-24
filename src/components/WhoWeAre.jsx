@@ -1,9 +1,12 @@
 import React from 'react';
-import Card from './Card';
 import { Truck, Shield, Lightbulb } from 'lucide-react';
 import missionImage from '../assets/ourmission.jpg';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import ValueCard from './ValueCard';
 
 const WhoWeAre = () => {
+  const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.2 });
+  const [missionRef, missionVisible] = useScrollAnimation({ threshold: 0.2 });
   const values = [
     {
       icon: Truck,
@@ -26,7 +29,7 @@ const WhoWeAre = () => {
     <section id="who-we-are" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-10 sm:mb-12 lg:mb-16">
+        <div ref={headerRef} className={`text-center mb-10 sm:mb-12 lg:mb-16 fade-in-up ${headerVisible ? 'visible' : ''}`}>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-charcoal mb-4 sm:mb-6 text-balance">
             Who We Are
           </h2>
@@ -38,25 +41,21 @@ const WhoWeAre = () => {
         {/* Value Cards Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-10 sm:mb-12 lg:mb-16">
           {values.map((value, index) => {
-            const Icon = value.icon;
+            const delayClass = index === 0 ? 'delay-100' : index === 1 ? 'delay-200' : 'delay-300';
             return (
-              <Card key={index}>
-                <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-purple-100 rounded-xl flex items-center justify-center mb-6">
-                  <Icon className="w-7 h-7 text-blue-600" />
-                </div>
-                <h3 className="text-2xl font-semibold text-charcoal mb-4">
-                  {value.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {value.description}
-                </p>
-              </Card>
+              <ValueCard
+                key={index}
+                icon={value.icon}
+                title={value.title}
+                description={value.description}
+                delay={delayClass}
+              />
             );
           })}
         </div>
 
         {/* Our Mission Section */}
-        <div className="bg-gradient-to-br from-blue-50/80 via-purple-50/60 to-blue-50/80 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 border border-blue-200/50 shadow-lg">
+        <div ref={missionRef} className={`bg-gradient-to-br from-blue-50/80 via-purple-50/60 to-blue-50/80 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 border border-blue-200/50 shadow-lg fade-in-up delay-400 ${missionVisible ? 'visible' : ''}`}>
           <div className="flex flex-col md:flex-row items-center gap-6 sm:gap-8 lg:gap-12">
             <div className="flex-shrink-0 w-full sm:w-auto">
               <img 

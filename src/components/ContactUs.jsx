@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import Button from './Button';
 import { Send, Mail, Phone, MapPin } from 'lucide-react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const ContactUs = () => {
+  const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.2 });
+  const [formRef, formVisible] = useScrollAnimation({ threshold: 0.2 });
+  const [detailsRef, detailsVisible] = useScrollAnimation({ threshold: 0.2 });
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -33,7 +37,7 @@ const ContactUs = () => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
-        <div className="text-center mb-10 sm:mb-12 lg:mb-16">
+        <div ref={headerRef} className={`text-center mb-10 sm:mb-12 lg:mb-16 fade-in-up ${headerVisible ? 'visible' : ''}`}>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6 text-balance px-4">
             Let's Work Together
           </h2>
@@ -44,7 +48,7 @@ const ContactUs = () => {
 
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
           {/* Contact Form */}
-          <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-white/20 shadow-2xl">
+          <div ref={formRef} className={`bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-white/20 shadow-2xl fade-in-left delay-200 ${formVisible ? 'visible' : ''}`}>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-blue-100 mb-2">
@@ -101,7 +105,7 @@ const ContactUs = () => {
           </div>
 
           {/* Company Details */}
-          <div className="space-y-4 sm:space-y-6">
+          <div ref={detailsRef} className={`space-y-4 sm:space-y-6 fade-in-right delay-300 ${detailsVisible ? 'visible' : ''}`}>
             <div className="bg-white/10 backdrop-blur-md rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-white/20 shadow-2xl">
               <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">Get in Touch</h3>
               <div className="space-y-4 sm:space-y-6">
