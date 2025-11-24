@@ -11,6 +11,7 @@
     @apply bg-white text-charcoal;
     font-feature-settings: 'kern' 1;
     text-rendering: optimizeLegibility;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -21,11 +22,22 @@
   p {
     @apply leading-relaxed;
   }
+
+  img {
+    @apply max-w-full h-auto;
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+  html {
+    font-size: 16px;
   }
 }
 

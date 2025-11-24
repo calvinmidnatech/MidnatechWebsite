@@ -17,20 +17,20 @@ const WhatWeBuild = () => {
   ];
 
   return (
-    <section id="what-we-build" className="py-20 px-6 bg-gradient-to-br from-white via-blue-50/50 to-purple-50/30">
+    <section id="what-we-build" className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-gradient-to-br from-white via-blue-50/50 to-purple-50/30">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-charcoal mb-6 text-balance">
+        <div className="text-center mb-10 sm:mb-12 lg:mb-16">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-charcoal mb-4 sm:mb-6 text-balance">
             What We Build
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
             End-to-end data engineering solutions designed to transform your data infrastructure from raw inputs to actionable insights.
           </p>
         </div>
 
         {/* Feature Cards Grid */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid sm:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
