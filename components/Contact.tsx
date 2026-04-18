@@ -33,7 +33,7 @@ const Contact: React.FC = () => {
               </div>
               <div>
                 <h4 className="font-semibold text-midna-dark">Email Us</h4>
-                <p className="text-gray-500">Midna@midnatech.com</p>
+                <p className="text-gray-500">iot@midnatech.com</p>
               </div>
             </div>
           </div>

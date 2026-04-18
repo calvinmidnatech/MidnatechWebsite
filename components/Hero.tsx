@@ -31,13 +31,10 @@ const Hero: React.FC = () => {
             Most telematics platforms give you data. We give you direction. From driver performance to vehicle health, MidnaTech surfaces the insights that actually move your business forward.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-6 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-            <button className="px-8 py-4 bg-white text-midna-dark font-semibold tracking-wide hover:bg-gray-100 transition-colors">
-              See How It Works
-            </button>
-            <button className="px-8 py-4 border border-white/20 text-white hover:bg-white/5 transition-colors backdrop-blur-sm">
-              Our Approach
-            </button>
+          <div className="animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+            <a href="#contact" className="inline-block px-8 py-4 bg-white text-midna-dark font-semibold tracking-wide hover:bg-gray-100 transition-colors">
+              Request a Demo
+            </a>
           </div>
         </div>
       </div>

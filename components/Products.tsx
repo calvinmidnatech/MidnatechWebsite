@@ -1,31 +1,31 @@
 import React from 'react';
 import { ProductProps } from '../types';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 
 const products: (ProductProps & { features: string[] })[] = [
   {
-    name: 'SafetySync',
-    tagline: 'Your CSA Scores, Visible and Improving',
-    description: 'Every fleet manager knows the anxiety of not knowing where you stand with FMCSA. SafetySync puts your safety metrics front and center—not as a report you pull monthly, but as a living dashboard you can act on today. Defects get tracked. Drivers get accountable. Your scores get better.',
+    name: 'Compliance & Safety',
+    tagline: 'Built for the Entire Operation',
+    description: 'Every fleet manager knows the anxiety of not knowing where you stand with FMCSA. We build compliance and safety products that combine data from multiple sources—telematics, inspections, violations—into a single living system you can act on today. Track historical trends to see how your safety posture is improving over time, not just where it stands right now. Automated coaching workflows flag drivers who break rules, assign warnings, and track resolution—so nothing falls through the cracks.',
     image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop',
     align: 'left',
-    features: ['Fleet Health Dashboard & KPIs', 'Smart Defect Tracking (Major vs Minor)', 'Driver Accountability & DVIR Tracking']
+    features: ['CSA Score Monitoring & Historical Trends', 'Multi-Source Data Integration', 'Automated Coaching Workflows & Escalations', 'Smart Defect Tracking & DVIR Accountability']
   },
   {
-    name: 'Fleet Utilization Dashboard',
-    tagline: 'Know Which Assets Earn—and Which Sit',
-    description: 'That truck that seems busy might be running empty miles. That van that seems idle might be your most profitable unit. Fleet Utilization Dashboard shows you where your money actually goes—by vehicle, by driver, by route. No more gut feelings. Just clarity.',
+    name: 'Fleet Intelligence',
+    tagline: 'Built for Fleet Managers',
+    description: 'That truck that seems busy might be running empty miles. That van that seems idle might be your most profitable unit. We merge data sets that don\'t naturally come together—telematics, fuel, maintenance, operations—into intelligence layers that show fleet managers where their money actually goes. Dashboards built for historical trend analysis let you see how your fleet is improving over weeks, months, and quarters. AI-driven insights surface what needs attention for cost, retention, and safety—so managers act on clarity, not gut feelings.',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop',
     align: 'right',
-    features: ['Trip Metrics (Daily/Weekly/Monthly)', 'Heatmap Visualizations', 'Individual Device Drill-Downs']
+    features: ['Cross-Platform Data Integration', 'Historical Trend Analysis & Reporting', 'AI-Powered Cost, Retention & Safety Insights', 'Custom Dashboards & Visualizations']
   },
   {
-    name: 'Driver Hub',
-    tagline: 'Give Drivers the Visibility They\'re Asking For',
-    description: 'The best drivers want to know how they\'re doing. The ones who need coaching often don\'t know they need it. Driver Hub shows each driver their own metrics—idle time, violations, efficiency scores—so improvement becomes self-directed, not confrontational.',
+    name: 'Driver Experience',
+    tagline: 'Built for the Driver',
+    description: 'The best drivers want to know how they\'re doing. The ones who need coaching often don\'t know they need it. We build driver-facing tools that pull together performance data across multiple sources—giving drivers a complete view of their metrics, trends over time, and how they\'re improving. When automated coaching kicks in, drivers see exactly where they stand and what to correct—so improvement becomes self-directed, not confrontational.',
     image: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=2070&auto=format&fit=crop',
     align: 'left',
-    features: ['Drive Time & Idle Time Metrics', 'Rule Violation Alerts (RPMs, Speeding)', 'Self-Correction Feedback Loop']
+    features: ['Personal Performance Trends Over Time', 'Automated Coaching Status & Alerts', 'Multi-Source Driver Scorecards', 'Self-Correction Feedback Loops']
   }
 ];
 
@@ -35,7 +35,7 @@ const Products: React.FC = () => {
       
       <div className="container mx-auto px-6 lg:px-12 mb-20">
         <h2 className="text-4xl md:text-6xl font-display font-light text-white">
-          Three Tools. One View of What Matters.
+          We Build Products Around What Matters Most
         </h2>
       </div>
 
@@ -58,7 +58,7 @@ const Products: React.FC = () => {
                 
                 <div className={`max-w-2xl p-8 md:p-12 backdrop-blur-md border border-white/5 bg-midna-charcoal/40 transition-all duration-500 hover:bg-midna-charcoal/60 ${product.align === 'right' ? 'md:-mr-12' : 'md:-ml-12'}`}>
                   <h3 className="text-midna-accent font-mono text-sm tracking-wider uppercase mb-4">
-                    Product 0{index + 1}
+                    0{index + 1}
                   </h3>
                   <h2 className="text-4xl md:text-5xl font-display text-white mb-2">
                     {product.name}
@@ -78,11 +78,6 @@ const Products: React.FC = () => {
                       </div>
                     ))}
                   </div>
-                  
-                  <button className="flex items-center gap-2 text-white hover:text-midna-accent transition-colors group/btn">
-                    See It in Action
-                    <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
-                  </button>
                 </div>
 
               </div>
